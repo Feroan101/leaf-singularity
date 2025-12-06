@@ -30,7 +30,7 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #C1FF72; /*change*/
+  --bs-primary: #f0ecf7;/*#DDBEFF; /*change*/
   --bs-secondary: #1f2a2e;
   --bs-light: rgba(31, 42, 46, 0.12);
   --bs-dark: #1F2A2E;
@@ -191,6 +191,17 @@
     scroll-behavior: smooth;
   }
 }
+
+
+/*shii i did*/
+.logo {
+  width:400px;
+}
+
+@media (max-width:768px) {
+  .logo {width:200px;}
+}
+
 
 body {
   margin: 0;
