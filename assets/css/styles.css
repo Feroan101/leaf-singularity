@@ -209,6 +209,29 @@
   .logo {width:200px;}
 }
 
+.hero-video {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.video1 {
+  opacity: 1;
+  z-index: 2;
+}
+
+.video2 {
+  opacity: 0;
+  z-index: 1;
+  animation: crossfade 20s infinite;
+}
+
+@keyframes crossfade {
+  0%, 45% { opacity: 0; }
+  50%, 95% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 .mobile-sticky-buttons {
   background-color: #f4eaff;
   border-top: 2px solid rgba(200, 149, 255, 0.507);
