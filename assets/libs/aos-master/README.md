@@ -124,10 +124,10 @@ Down below you can find list of all anchor-placement options.
   <div data-aos="fade-zoom-in" data-aos-offset="200" data-aos-easing="ease-in-sine" data-aos-duration="600">
 ```
 ```html
-  <div data-aos="flip-left" data-aos-delay="100" data-aos-anchor=".example-selector">
+  <div data-aos="flip-left"  data-aos-anchor=".example-selector">
 ```
 ```html
-  <div data-aos="fade-up" data-aos-anchor-placement="top-center">
+  <div  data-aos-anchor-placement="top-center">
 ```
 
 
