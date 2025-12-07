@@ -235,13 +235,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .header .position-fixed{
-    position: relative !important;  /* Scrolls normally */
-  }
-}
-
-
 /* Long button styling */
 .mobile-sticky-buttons .sticky-btn {
   background-color: transparent;
@@ -315,7 +308,7 @@
 }
 
 .bottom-mob .container {
-	--mask-image: url(https://assets.codepen.io/605876/chev-mask_1.png);
+	--mask-image: url(../images/resources/pixel-arrow.png);
 	--spread: 24px;
 	--size: 28px;
 	width: 58px;
