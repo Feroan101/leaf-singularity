@@ -211,6 +211,7 @@
 
 .mobile-sticky-buttons {
   background-color: #f4eaff;
+  border-top: 2px solid rgba(200, 149, 255, 0.507);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -241,21 +242,6 @@
   }
 }
 
-
-/* Long button styling */
-.mobile-sticky-buttons .sticky-btn {
-  background-color: transparent;
-  color: black;
-  width: 30%;
-  padding:10px;
-  font-size: 12px;
-	height: 48px;
-	padding: 0;
-	border-radius: 8px;
-	border: 2px solid black;
-	
-}
-
 .bottom-mob,
 .bottom-mob:after,
 .bottom-mob:before {
@@ -270,8 +256,8 @@
 }
 
 .bottom-mob button {
-  font-size: 16px;
-	height: 48px;
+  font-size: 15px;
+	height: 34px;
 	padding: 0;
 	display: grid;
 	border-radius: 8px;
@@ -281,7 +267,7 @@
 	position: relative;
 	background: black;
 	color: white;
-	font-weight: 80;
+	font-weight: 85;
 	scale: 1;
   outline-color: #DDBEFF;
   outline-offset: 0.25rem;
@@ -328,6 +314,22 @@
 	box-shadow: 0 10px 10px -5px hsl(0 0% 0% / 0.5);
 	container-type: inline-size;
 }
+
+.bottom-mob .container {
+  --mask-image: url(https://assets.codepen.io/605876/chev-mask_1.png);
+  --spread: 24px;
+  --size: 28px;
+  
+  /* MOBILE RETINA FIX */
+  mask-size: 64px 64px !important;     /* 2x bigger */
+  mask-position: center right !important;
+  mask-repeat: no-repeat !important;
+  
+  /* Crisp rendering */
+  image-rendering: pixelated;
+  image-rendering: -webkit-optimize-contrast;
+}
+
 
 .primary {
 	content: "";
