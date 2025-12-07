@@ -11,7 +11,7 @@
     <main>
         <div class="typewriter-container">
             <h1 id="typewriter" contenteditable="true"><span class="typewriter"></span></h1>
-            <h1 id="typewriter2" contenteditable="true"><span class="typewriter2"></span></h1>
+            <h1 id="typewriter2" contenteditable="true" style="font-size: 36px;"><span class="typewriter2"></span></h1>
         </div>
     </main>
 
@@ -37,8 +37,11 @@
         }, 9500);
 
         setTimeout(() => {
-  window.location.href = 'index.html';
-}, 9600); 
+            document.documentElement.classList.add('fade-out'); // Fade entire page
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1200); // Redirect after fade
+            }, 9600);
     </script>
 </body>
 </html>

@@ -373,4 +373,14 @@ main {
          /* Move up */
 }
 
+html {
+  transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1); /* Natural ease-out */
+}
+
+.fade-out {
+  opacity: 0.3;
+  transform: scale(1.02);
+  filter: blur(2px);
+  pointer-events: none;
+}
 

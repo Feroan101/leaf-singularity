@@ -10,6 +10,20 @@
   <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
   <link rel="stylesheet" href="../assets/css/styles.css" />
   <link rel="stylesheet" href="../assets/css/world.css" />
+  <style>
+    html {
+      opacity: 0;
+      transform: scale(1.02);
+      filter: blur(2px);
+      transition: all 1.2s cubic-bezier(0.32, 0, 0.67, 0); /* Natural ease-in */
+    }
+
+    .fade-in {
+      opacity: 1;
+      transform: scale(1);
+      filter: blur(0);
+    }
+  </style>
 </head>
 
 <!-- Add this BEFORE </body> -->
@@ -1394,6 +1408,13 @@
   <script src="../assets/js/custom.js"></script>
   <!-- solar icons -->
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  <script>
+    // Fade in index.html
+    setTimeout(() => {
+      document.documentElement.classList.add('fade-in');
+    }, 200);
+
+  </script>
 </body>
 
 
