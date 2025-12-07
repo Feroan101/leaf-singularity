@@ -157,7 +157,9 @@ main {
 
   h1 {
     color: white;
-    font-size: max(72px, 15vw);
+    padding: 0;
+    margin: 0;
+    font-size: 62px; /*max(72px, 15vw)*/
     mix-blend-mode: lighten;
     font-weight: 650;
     font-stretch: 110%;
@@ -239,34 +241,136 @@ main {
   }
 }
 
+@keyframes typing {
+  /* "Hello." - STAYS after typing */
+  0.0000% { content: ""; }
+  1.5625% { content: "H"; }
+  3.1250% { content: "He"; }
+  4.6875% { content: "Hel"; }
+  6.2500% { content: "Hell"; }
+  7.8125%, 100% { content: "Hello."; }  /* STAYS FOREVER */
+}
+
+@keyframes typing2 {
+  /* Smooth "welcome to leaf" after Hello. */
+  25.00%, 27.08% { content: ""; }
+  27.08%, 28.65% { content: "w"; }
+  28.65%, 30.21% { content: "we"; }
+  30.21%, 31.77% { content: "wel"; }
+  31.77%, 33.33% { content: "welc"; }
+  33.33%, 34.90% { content: "welco"; }
+  34.90%, 36.46% { content: "welcom"; }
+  36.46%, 38.02% { content: "welcome"; }
+  38.02%, 39.58% { content: "welcome t"; }
+  39.58%, 41.15% { content: "welcome to"; }
+  41.15%, 42.71% { content: "welcome to L"; }
+  42.71%, 44.27% { content: "welcome to Le"; }
+  44.27%, 45.83% { content: "welcome to Lea"; }
+  45.83%, 47.40% { content: "welcome to Leaf"; }
+  47.40%, 100% { content: "welcome to Leaf."; }
+}
+
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.typewriter{
+  --caret: currentcolor;
+}
+
+.typewriter2 {
+  --caret: transparent; /* Default: hidden */
+}
+
+/* After typing1 completes (7.8125%) but before typing2 starts (25%) */
+.typewriter2.typing-complete {
+  --caret: currentcolor; /* ← Visible caret */
+}
+
+/* Hide caret after typing1 */
+.typewriter.done1::after {
+  border-right: 0 !important;
+}
+
+/* Hide caret after typing2 */
+.typewriter2.done2::after {
+  border-right: 0 !important;
+}
+
+.typewriter::before {
+  content: "";
+  animation: typing 13.5s infinite;
+
+}
+
+.typewriter2::before {
+  content: "";
+  animation: typing2 13.5s infinite;
+
+}
+
+.typewriter::after {
+  content: "";
+  border-right: 1px solid var(--caret);
+  animation: blink 0.5s linear infinite;
+}
+
+.typewriter2::after {
+  content: "";
+  border-right: 1px solid var(--caret);
+  animation: blink 0.5s linear infinite;
+}
+
+.typewriter.thick::after {
+  border-right: 1ch solid var(--caret);
+}
+
+.typewriter.nocaret::after {
+  border-right: 0;
+}
+
+
+@media (prefers-reduced-motion) {
+  .typewriter::after {
+    animation: none;
+  }
+  
+  @keyframes sequencePopup {
+    0%, 100% { content: "developer"; }
+    25% { content: "writer"; }
+    50% { content: "reader"; }
+    75% { content: "human"; }
+  }
+
+  .typewriter::before {
+    content: "Hello";
+    animation: sequencePopup 12s linear infinite;
+  }
+}
+
+/**/
 
 
 .typewriter-container {
-  max-width: 90vw;           /* Contain within viewport */
-  overflow: hidden;          /* Hide overflow */
-  display: inline-block;     /* Shrink to text size */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+  height: 200px; /* Fixed height for smooth transition */
 }
 
-.typewriter-text {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: .5px solid #6366F1;
-  margin: 0;
-  letter-spacing: .05em;     /* Tighter spacing */
-  animation: 
-    typing 2.5s steps(50, end),
-    blink-caret .75s step-end infinite;
-  font-size: clamp(2rem, 8vw, 5rem);
-  display: inline-block;     /* Key fix */
+#typewriter {
+  font-size: clamp(3rem, 10vw, 7rem);
+  transition: all 1s ease-out; /* Smooth shrink/move */
 }
 
-/* Animations same */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+#typewriter.typed {
+  font-size: clamp(1.5rem, 5vw, 3rem); /* Smaller */
+         /* Move up */
 }
 
-@keyframes blink-caret {
-  from, to { border-color: transparent; }
-  50% { border-color: #6366F1; }
-}
+

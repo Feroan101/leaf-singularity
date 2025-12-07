@@ -10,9 +10,31 @@
     
     <main>
         <div class="typewriter-container">
-            <h1 id="typewriter" contenteditable="true" class="typewriter-text">Hello.</h1>
+            <h1 id="typewriter" contenteditable="true"><span class="typewriter"></span></h1>
+            <h1 id="typewriter2" contenteditable="true"><span class="typewriter2"></span></h1>
         </div>
     </main>
+
     <script href="../assets/js/hello.js"></script>
+   <script>
+// REMOVE THIS LINE - CSS handles typing!
+// typeWriter(document.getElementById('typewriter'), 'Hello. Create anywhere.');
+
+setTimeout(() => {
+  document.querySelector('.typewriter2').classList.add('typing-complete');
+}, 3200);
+
+setTimeout(() => {
+  document.getElementById('typewriter').classList.add('typed');
+}, 3200);
+
+setTimeout(() => {
+  document.querySelector('.typewriter').classList.add('done1');
+}, 2800);
+
+setTimeout(() => {
+  document.querySelector('.typewriter2').classList.add('done2');
+}, 9500);
+</script>
 </body>
 </html>
