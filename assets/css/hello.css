@@ -369,16 +369,17 @@ main {
 }
 
 #typewriter.typed {
-  font-size: clamp(1.5rem, 5vw, 3rem); /* Smaller */
-         /* Move up */
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
 
 html {
   transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1); /* Natural ease-out */
 }
 
 .fade-out {
-  opacity: 0.3;
+  opacity: 0.5;
   transform: scale(1.02);
   filter: blur(2px);
   pointer-events: none;

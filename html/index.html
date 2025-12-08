@@ -13,16 +13,39 @@
   <style>
     html {
       opacity: 0;
-      transform: scale(1.02);
       filter: blur(2px);
-      transition: all 1.2s cubic-bezier(0.32, 0, 0.67, 0); /* Natural ease-in */
+      transition: all 1.5s cubic-bezier(0.32, 0, 0.67, 0); /* Natural ease-in */
     }
 
     .fade-in {
       opacity: 1;
-      transform: scale(1);
       filter: blur(0);
     }
+
+    @media (max-width:768px) {
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .page-wrapper {
+        flex: 1; /* Takes remaining space */
+      }
+
+      footer {
+        margin-top: auto; /* Pushes footer to bottom */
+        padding-bottom: 0 !important; /* Remove bottom padding */
+      }
+
+      /* Kill any extra spacing */
+      footer::after,
+      footer > div:last-child {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -1412,7 +1435,7 @@
     // Fade in index.html
     setTimeout(() => {
       document.documentElement.classList.add('fade-in');
-    }, 200);
+    }, 300);
 
   </script>
 </body>

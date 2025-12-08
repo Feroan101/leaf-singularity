@@ -17,15 +17,12 @@
 
     <script href="../assets/js/hello.js"></script>
    <script>
-        // REMOVE THIS LINE - CSS handles typing!
-        // typeWriter(document.getElementById('typewriter'), 'Hello. Create anywhere.');
-
         setTimeout(() => {
         document.querySelector('.typewriter2').classList.add('typing-complete');
         }, 3200);
 
         setTimeout(() => {
-        document.getElementById('typewriter').classList.add('typed');
+        document.getElementById('typewriter').classList.add('typed'); // Pan out starts
         }, 3200);
 
         setTimeout(() => {
@@ -36,12 +33,14 @@
         document.querySelector('.typewriter2').classList.add('done2');
         }, 9500);
 
+        // Pan out complete → fade page → redirect
         setTimeout(() => {
-            document.documentElement.classList.add('fade-out'); // Fade entire page
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 1200); // Redirect after fade
-            }, 9600);
+        document.documentElement.classList.add('fade-out');
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1200); // After pan-out + fade
+        }, 9550); // After all animations
     </script>
+
 </body>
 </html>
