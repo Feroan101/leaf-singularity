@@ -215,6 +215,14 @@
     border-bottom: 1px solid rgba(0,0,0,0.1) !important;
   }
 
+.header .header-menu .header-link {
+    font-size: 0.9rem !important;  /* tweak: 0.75–0.9rem */
+  }
+
+   .header .btn {
+    font-size: 0.9rem !important;
+  }
+
   .mobile-sticky-buttons,
   .mobile-sticky-buttons.show {
     display: none !important;
@@ -241,9 +249,12 @@
 }
 
 
-.logo {
-  width:400px;
+
+.logo img {
+  max-width: 250px !important;  /* Adjust as desired */
+  height: auto !important;
 }
+
 
 @media (max-width:768px) {
   .logo {width:200px;}
