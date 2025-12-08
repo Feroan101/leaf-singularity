@@ -201,6 +201,46 @@
 
 
 /*shii i did*/
+/* Desktop: White font initially, dark on scroll */
+@media (min-width: 769px) {
+  .header:not(.scrolled) .header-link,
+  .header:not(.scrolled) .text-dark {
+    font-weight: bold;
+    color: white !important;
+  }
+  
+  .header.scrolled {
+    background: rgba(221, 190, 255, 0.8) !important;
+    backdrop-filter: blur(15px) !important;  /* ← BLUR EFFECT */
+    border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+  }
+
+  .mobile-sticky-buttons,
+  .mobile-sticky-buttons.show {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  
+  body {
+    padding-bottom: 0 !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .header a.btn-outline-dark {
+    transition: all 0.2s ease !important;
+  }
+  
+  .header a.btn-outline-dark:hover,
+  .header a.btn-outline-dark:focus {
+    color: white !important;
+    background-color: #1f1f1f !important;
+    border-color: #1f1f1f !important;
+  }
+}
+
+
 .logo {
   width:400px;
 }
@@ -240,28 +280,35 @@
   left: 0;
   right: 0;
   z-index: 9999;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.4s ease;
   
-  /* MOBILE ONLY - Hide on desktop */
+  /* MOBILE ONLY */
   display: none;
 }
 
+.mobile-sticky-buttons.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  display: block !important;
+}
+
 @media (max-width: 768px) {
+  .header {
+    position: relative !important;
+  }
+
   .mobile-sticky-buttons {
     display: block;
   }
   
   body {
-    padding-bottom: 120px; /* Prevent content overlap */
+    padding-bottom: 120px;
   }
-
+  
   .get-template.arrow-up {
     display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .header .position-fixed{
-    position: relative !important;  /* Scrolls normally */
   }
 }
 
