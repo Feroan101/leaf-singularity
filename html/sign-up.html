@@ -10,18 +10,72 @@
   <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
   <link rel="stylesheet" href="../assets/css/styles.css" />
   <style>
-.img-bg-section {
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-              url('../assets/images/backgrounds/graff.jpeg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
+    .body {
+      overflow:hidden;
+      padding: 0;
+      margin: 0;
+    }
+  .img-bg-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), 
+                url('../assets/images/backgrounds/sign-up.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
 
-.sign-in {
-  position: relative;
-  z-index: 3;
-}
+  .sign-in {
+    position: relative;
+    z-index: 3;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.08);
+    color: white;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .card .card-body {
+    background: transparent;
+  }
+
+  .minimal-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 0;
+    padding-left: 0;
+    padding-right: 0;
+    color: #ffffff;
+  }
+
+  .minimal-input::placeholder {
+    color: rgba(255, 255, 255, 0.37);
+    font-weight: 400;
+  }
+
+  .minimal-input:focus {
+    background: transparent;
+    border-color: #ffffff;
+    color: #ffffff;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .card a {
+    color: #ddbeff;
+  }
+
+
+  .card .auth-btn {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(60px);
+  }
 </style>
 
 </head>
@@ -37,40 +91,40 @@
     <div class="sign-in card mx-auto shadow-lg">
       <div class="card-body py-8 px-lg-5">
         <a href="index.html" class="mb-8 hstack justify-content-center">
-          <img src="../assets/images/logos/head-logo-black.png" alt="logo-dark" class="img-fluid">
+          <img src="../assets/images/logos/head-logo.png" alt="logo-dark" class="img-fluid">
         </a>
         <div class="hstack gap-3">
           <!-- Google Sign-Up -->
           <a href="javascript:void(0)" onclick="signUpGoogle()" 
-            class="btn btn-outline-light bg-white px-3 py-2 fs-4 text-dark w-50 fw-medium hstack gap-2 lh-lg justify-content-center">
+            class="btn auth-btn px-3 py-2 fs-4 text-dark w-50 fw-medium hstack gap-2 lh-lg justify-content-center">
             Sign Up <img src="../assets/images/svgs/icon-google.svg" alt="google" class="img-fluid">
           </a>
           <!-- GitHub Sign-Up -->
           <a href="javascript:void(0)" onclick="signUpGithub()" 
-            class="btn btn-outline-light bg-white px-3 py-2 fs-4 text-dark w-50 fw-medium hstack gap-2 lh-lg justify-content-center">
+            class="btn auth-btn px-3 py-2 fs-4 text-dark w-50 fw-medium hstack gap-2 lh-lg justify-content-center">
             Sign Up <img src="../assets/images/svgs/icon-github.svg" alt="github" class="img-fluid">
           </a>
         </div>
         <div class="position-relative hstack justify-content-center">
-          <hr class="my-8 w-100 d-block">
-          <p class="mb-0 fs-3 bg-body px-3 position-absolute top-50 start-50 translate-middle">OR</p>
+          <hr class="my-8 w-100 d-block" style="background-color: #ddbeff;">
+          <p class="mb-0 fs-3 bg-body px-3 position-absolute top-50 start-50 translate-middle" style="color: black;">OR</p>
         </div>
         <form class="d-flex flex-column gap-3" onsubmit="event.preventDefault(); signUpEmail(document.getElementById('signupName').value, document.getElementById('exampleInputEmail1').value, document.getElementById('inputPassword').value); return false;">
           <div>
-            <input type="text" id="signupName" class="form-control border-bottom" placeholder="Full Name">
+            <input type="text" id="signupName" class="form-control minimal-input" placeholder="Full Name">
           </div>
           <div>
-            <input type="email" class="form-control border-bottom" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
+            <input type="email" class="form-control minimal-input" id="exampleInputEmail1" placeholder="Email" aria-describedby="emailHelp">
           </div>
           <div>
-            <input type="password" class="form-control border-bottom" id="inputPassword" placeholder="Password">
+            <input type="password" class="form-control minimal-input" id="inputPassword" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-dark w-100 justify-content-center py-2 fw-medium my-7 fs-4 lh-lg">
+          <button type="submit" class="btn w-100 justify-content-center py-2 fw-medium my-7 fs-4 lh-lg" style="background-color: #ddbeff;">
             Sign Up
           </button>
         </form>
-        <p class="text-center mb-1 d-block fw-medium">By creating an account, you agree with our <a class="text-dark" href="privacy-policy.html">Privacy</a> and <a class="text-dark" href="terms-and-conditions.html">Terms</a>.</p>
-        <p class="mb-0 fw-medium text-center">Already have an account? <a class="text-dark" href="sign-in.html">Sign In</a></p>
+        <p class="text-center mb-1 d-block fw-medium">By creating an account, you agree with our <a href="privacy-policy.html">Privacy</a> and <a href="terms-and-conditions.html">Terms</a>.</p>
+        <p class="mb-0 fw-medium text-center">Already have an account? <a href="sign-in.html">Sign In</a></p>
       </div>
     </div>
   </div>
@@ -105,7 +159,7 @@
 <script>
   const firebaseConfig = {
     apiKey: "AIzaSyAk1GpIm-r2NsAWMGRIsGcSNbmg_f6MO4Y",
-    authDomain: "leafsingularity.firebaseapp.com",
+    authDomain: "auth.leafsingularity.com",
     projectId: "leafsingularity",
     storageBucket: "leafsingularity.firebasestorage.app",
     messagingSenderId: "750853229730",
