@@ -96,25 +96,111 @@
 </script>
 
 <script>
-  // SIGN IN FUNCTIONS
-    function signInGoogle() {
-      auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-        .then(() => window.location.href = '/html/index.html')
-        .catch(err => alert('Google failed: ' + err.message));
-    }
+  // Popup conflict manager
+  let authPopupOpen = false;
+  
+  // Error display element
+  const errorDiv = document.createElement('div');
+  errorDiv.id = 'auth-error';
+  errorDiv.style.cssText = `
+    display: none;
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-left: 4px solid #dc3545;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  `;
+  
+  function showError(message) {
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+    document.querySelector('.card-body').insertBefore(errorDiv, document.querySelector('form'));
+    
+    setTimeout(() => {
+      errorDiv.style.display = 'none';
+    }, 5000);
+  }
+  
+  function hideError() {
+    errorDiv.style.display = 'none';
+  }
 
-    function signInGithub() {
-      auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
-        .then(() => window.location.href = '/html/index.html')
-        .catch(err => alert('GitHub failed: ' + err.message));
+  function safeAuthPopup(authProvider, successCallback) {
+    if (authPopupOpen) {
+      showError('Please wait for the current login to complete.');
+      return;
     }
+    
+    hideError();
+    authPopupOpen = true;
+    
+    auth.signInWithPopup(authProvider)
+      .then(result => {
+        successCallback(result);
+        authPopupOpen = false;
+      })
+      .catch(error => {
+        console.error('Auth error:', error);
+        showError('Login failed: ' + error.message);
+        authPopupOpen = false;
+      });
+  }
 
-    function signInEmail(email, password) {
-      auth.signInWithEmailAndPassword(email, password)
-        .then(() => window.location.href = '/html/index.html')
-        .catch(err => alert('Email failed: ' + err.message));
+  // Google / GitHub sign-in
+  function signInGoogle() {
+    safeAuthPopup(
+      new firebase.auth.GoogleAuthProvider(),
+      () => window.location.href = '/html/index.html'
+    );
+  }
+
+  function signInGithub() {
+    safeAuthPopup(
+      new firebase.auth.GithubAuthProvider(),
+      () => window.location.href = '/html/index.html'
+    );
+  }
+  
+  // Email sign-in
+  function signInEmail(email, password) {
+    hideError();
+    
+    if (!email || !password) {
+      showError('Please enter email and password.');
+      return;
     }
-  </script>
+    
+    auth.signInWithEmailAndPassword(email, password)
+      .then(() => window.location.href = '/html/index.html')
+      .catch(err => {
+        console.error('Email login failed:', err);
+        let errorMsg = 'Login failed: ';
+        
+        switch (err.code) {
+          case 'auth/user-not-found':
+            errorMsg += 'No account found with this email. Please sign up first.';
+            break;
+          case 'auth/wrong-password':
+            errorMsg += 'Incorrect password. Try again.';
+            break;
+          case 'auth/invalid-email':
+            errorMsg += 'Please enter a valid email address.';
+            break;
+          case 'auth/too-many-requests':
+            errorMsg += 'Too many failed attempts. Please try again later.';
+            break;
+          default:
+            errorMsg += err.message;
+        }
+        showError(errorMsg);
+      });
+  }
+</script>
+
+
 
 </body>
 

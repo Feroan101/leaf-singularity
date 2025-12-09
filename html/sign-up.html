@@ -97,6 +97,7 @@
   <!-- solar icons -->
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+
   <!-- DELETE analytics - add AUTH instead -->
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
@@ -116,24 +117,125 @@
 </script>
 
 <script>
+  // Popup conflict manager
+  let authPopupOpen = false;
+  
+  // Error display element (you already have showError / hideError)
+  const errorDiv = document.createElement('div');
+  errorDiv.id = 'auth-error';
+  errorDiv.style.cssText = `
+    display: none;
+    background: #f8d7da;
+    color: #721c24;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border-left: 4px solid #dc3545;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+  `;
+  
+  function showError(message) {
+    errorDiv.textContent = message;
+    errorDiv.style.display = 'block';
+    document.querySelector('.card-body').insertBefore(errorDiv, document.querySelector('form'));
+    setTimeout(() => {
+      errorDiv.style.display = 'none';
+    }, 5000);
+  }
+  
+  function hideError() {
+    errorDiv.style.display = 'none';
+  }
+
+  // SAFEAUTH: shared popup wrapper
+  function safeAuthPopup(authProvider, successCallback) {
+    if (authPopupOpen) {
+      showError('Please wait for the current login to complete.');
+      return;
+    }
+
+    hideError();
+    authPopupOpen = true;
+
+    auth.signInWithPopup(authProvider)
+      .then(result => {
+        successCallback(result);
+        authPopupOpen = false;
+      })
+      .catch(error => {
+        console.error('Auth error:', error);
+        showError('Login failed: ' + error.message);
+        authPopupOpen = false;
+      });
+  }
+
   function signUpGoogle() {
-      auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
-        .then(() => window.location.href = '/html/index.html')
-        .catch(err => alert('Google failed: ' + err.message));
+    safeAuthPopup(
+      new firebase.auth.GoogleAuthProvider(),
+      () => window.location.href = '/html/index.html'
+    );
+  }
+
+  function signUpGithub() {
+    safeAuthPopup(
+      new firebase.auth.GithubAuthProvider(),
+      () => window.location.href = '/html/index.html'
+    );
+  }
+  
+  function signUpEmail(name, email, password) {
+  hideError();
+
+  if (!name || !email || !password) {
+    showError('Please fill in all fields.');
+    return;
+  }
+
+  auth.createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      const user = userCredential.user;
+      console.log('User created:', user.email);
+      return user.updateProfile({ displayName: name }).then(() => user);
+    })
+    .then(user => {
+      console.log('Sending verification email to:', user.email);
+      return user.sendEmailVerification();
+    })
+    .then(() => {
+      console.log('Verification email send() promise resolved');
+      showError('Registration complete. Please check your email (including spam/promotions).');
+      // Comment redirect for now while testing
+      // window.location.href = '/html/index.html';
+    })
+    .catch(err => {
+      console.error('Email signup failed:', err);
+      let errorMsg = 'Signup failed: ';
+      
+      switch (err.code) {
+        case 'auth/email-already-in-use':
+          errorMsg += 'Email already registered. Try signing in instead.';
+          break;
+        case 'auth/weak-password':
+          errorMsg += 'Password should be at least 6 characters.';
+          break;
+        case 'auth/invalid-email':
+          errorMsg += 'Please enter a valid email address.';
+          break;
+        default:
+          errorMsg += err.message;
+      }
+      showError(errorMsg);
+    });
+}
+
+  // Check auth state on page load
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      console.log('User already logged in:', user.email);
+      window.location.href = '/html/index.html';
     }
-    
-    function signUpGithub() {
-      auth.signInWithPopup(new firebase.auth.GithubAuthProvider())
-        .then(() => window.location.href = '/html/index.html')
-        .catch(err => alert('GitHub failed: ' + err.message));
-    }
-    
-    function signUpEmail(name, email, password) {
-      auth.createUserWithEmailAndPassword(email, password)
-        .then(userCredential => userCredential.user.updateProfile({ displayName: name }))
-        .then(() => window.location.href = '/html/index.html')
-        .catch(err => alert('Email failed: ' + err.message));
-    }
+  });
 </script>
 
 
