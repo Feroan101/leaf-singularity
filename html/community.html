@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Leaf - Community Forum</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/white-leaf.png" />
+  <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <style>
+    .nav-tabs-custom {
+      border-bottom: 2px solid #e0e0e0;
+      gap: 30px;
+    }
+    .nav-link-custom {
+      color: #666;
+      text-decoration: none;
+      padding: 12px 0;
+      border-bottom: 3px solid transparent;
+      font-weight: 500;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .nav-link-custom.active {
+      color: #1f1f1f;
+      border-bottom-color: #007bff;
+    }
+    .nav-link-custom:hover {
+      color: #1f1f1f;
+    }
+    .discussion-item {
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .discussion-item:hover {
+      border-color: #007bff;
+      box-shadow: 0 5px 15px rgba(0,123,255,0.1);
+    }
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #007bff;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .discussion-meta {
+      font-size: 13px;
+      color: #999;
+      margin-top: 10px;
+    }
+    .badge-tag {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #666;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      margin-right: 5px;
+      margin-top: 10px;
+    }
+    .badge-tag.solved {
+      background: #d4edda;
+      color: #155724;
+    }
+    .badge-tag.featured {
+      background: #fff3cd;
+      color: #856404;
+    }
+    .search-bar {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .create-discussion {
+      background: #007bff;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 30px;
+      transition: all 0.3s;
+    }
+    .create-discussion:hover {
+      background: #0056b3;
+      color: white;
+      text-decoration: none;
+    }
+    .stats-box {
+      text-align: center;
+      padding: 20px;
+      background: #f8f9fa;
+      border-radius: 8px;
+    }
+    .stats-number {
+      font-size: 28px;
+      font-weight: 700;
+      color: #007bff;
+    }
+    .stats-label {
+      font-size: 13px;
+      color: #666;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="header border-4 border-primary border-top position-fixed start-0 top-0 w-100" style="z-index: 1000;">
+    <div class="container">
+      <div class="header-wrapper d-flex align-items-center justify-content-between">
+        <div class="logo">
+          <a href="index.html" class="logo-white">
+            <img src="../assets/images/logos/head-logo.png" alt="logo" class="img-fluid logo">
+          </a>
+          <a href="index.html" class="logo-dark">
+            <img src="../assets/images/logos/head-logo-black.png" alt="logo" class="img-fluid logo">
+          </a>
+        </div>
+        <div class="d-flex align-items-center gap-4">
+          <div class="btn-group">
+            <div class="d-flex align-items-center gap-4">
+              <ul class="header-menu list-unstyled mb-0 d-none d-lg-flex gap-4 mx-auto" style="height: 40px; align-items: center;">
+                <li class="header-item">
+                  <a href="index.html" class="header-link fs-6 fw-medium text-dark text-decoration-none">
+                    <img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin me-2">Home
+                  </a>
+                </li>
+                <li class="header-item">
+                  <a href="features.html" class="header-link fs-6 fw-medium text-dark text-decoration-none">
+                    <img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin me-2">Features
+                  </a>
+                </li>
+                <li class="header-item">
+                  <a href="downloads.html" class="header-link fs-6 fw-medium text-dark text-decoration-none">
+                    <img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin me-2">Download
+                  </a>
+                </li>
+                <li class="header-item">
+                  <a href="docs.html" class="header-link fs-6 fw-medium text-dark text-decoration-none">
+                    <img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin me-2">Documentation
+                  </a>
+                </li>
+                <li class="header-item">
+                  <a href="community.html" class="header-link fs-6 fw-medium text-dark text-decoration-none">
+                    <img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin me-2">Community
+                  </a>
+                </li>
+                <a href="sign-up.html" class="btn hover-white-btn fs-6 px-4 py-2 shadow-sm text-white" style="border-radius: 8px; background: #1f1f1f; border:1px solid #1f1f1f">
+                  Register
+                </a>
+              </ul>
+              <div class="btn-group d-lg-none">
+                <button class="btn btn-secondary toggle-menu round-45 p-2 d-flex align-items-center justify-content-center bg-white rounded-circle" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                  <iconify-icon icon="solar:hamburger-menu-line-duotone" class="menu-icon fs-8 text-dark"></iconify-icon>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end p-4">
+                  <div class="d-flex flex-column gap-6">
+                    <div class="hstack justify-content-between border-bottom pb-6">
+                      <p class="mb-0 fs-5 text-dark">Menu</p>
+                      <button type="button" class="btn-close opacity-75" aria-label="Close"></button>
+                    </div>
+                    <div class="d-flex flex-column gap-3">
+                      <ul class="header-menu list-unstyled mb-0 d-flex flex-column gap-2">
+                        <li class="header-item"><a href="index.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Home</a></li>
+                        <li class="header-item"><a href="features.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Features</a></li>
+                        <li class="header-item"><a href="downloads.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Download</a></li>
+                        <li class="header-item"><a href="docs.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Documentation</a></li>
+                        <li class="header-item"><a href="community.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin">Community</a></li>
+                      </ul>
+                      <div class="hstack gap-3">
+                        <a href="sign-in.html" class="btn btn-outline-light fs-6 bg-white px-3 py-2 text-dark w-50 hstack justify-content-center">Sign In</a>
+                        <a href="sign-up.html" class="btn btn-dark text-white fs-6 bg-dark px-3 py-2 w-50 hstack justify-content-center">Sign Up</a>
+                      </div>
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper overflow-hidden" style="padding-top: 100px;">
+    <!-- Banner -->
+    <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end" style="background-image: url(../assets/images/backgrounds/privacy-policy-banner.jpg);">
+      <div class="container">
+        <div class="d-flex flex-column gap-4 pb-5 pb-xl-10 position-relative z-1">
+          <div class="d-flex align-items-end gap-3">
+            <h1 class="mb-0 fs-16 text-white lh-1">Community Forum</h1>
+          </div>
+          <p class="text-white fs-5 text-opacity-70">Connect with other Leaf users, share ideas, and solve problems together</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="py-5 py-lg-11">
+      <div class="container">
+        <!-- Stats -->
+        <div class="row g-4 mb-8">
+          <div class="col-md-3">
+            <div class="stats-box">
+              <div class="stats-number">2,450</div>
+              <div class="stats-label">Active Members</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stats-box">
+              <div class="stats-number">5,890</div>
+              <div class="stats-label">Discussions</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stats-box">
+              <div class="stats-number">18,340</div>
+              <div class="stats-label">Posts</div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="stats-box">
+              <div class="stats-number">98%</div>
+              <div class="stats-label">Satisfaction Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search and Create -->
+        <input type="text" class="search-bar" placeholder="Search discussions, tutorials, tips...">
+        <a href="sign-up.html" class="create-discussion">Create New Discussion</a>
+
+        <!-- Tabs -->
+        <div class="mb-5">
+          <div class="nav-tabs-custom d-flex flex-wrap mb-4">
+            <div class="nav-link-custom active" onclick="switchTab('help', this)">Help & Support</div>
+            <div class="nav-link-custom" onclick="switchTab('features', this)">Feature Requests</div>
+            <div class="nav-link-custom" onclick="switchTab('showcase', this)">Showcase</div>
+            <div class="nav-link-custom" onclick="switchTab('general', this)">General Discussion</div>
+          </div>
+
+          <!-- Help & Support Tab -->
+          <div id="help" class="tab-content active">
+            <div class="discussion-item">
+              <div class="hstack gap-3 align-items-start">
+                <div class="user-avatar">JD</div>
+                <div style="flex: 1;">
+                  <h5 class="mb-1">How to enable GPU acceleration on Windows?</h5>
+                  <p class="text-muted mb-2">Started by John Doe • 2 days ago</p>
+                  <p class="mb-0">I'm having trouble getting GPU acceleration to work on my RTX 3080. Have tried updating drivers but still not showing as enabled in settings...</p>
+                  <div>
+                    <span class="badge-tag solved">Solved</span>
+                    <span class="badge-tag">GPU</span>
+                  </div>
+                  <div class="discussion-meta">
+                    <strong>15 replies</strong> • Last reply 6 hours ago
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="discussion-item">
+              <div class="hstack gap-3 align-items-start">
+                <div class="user-avatar" style="background: #28a745;">SM</div>
+                <div style="flex: 1;">
+                  <h5 class="mb-1">Collaboration not syncing in real-time</h5>
+                  <p class="text-muted mb-2">Started by Sarah Miller • 1 week ago</p>
+                  <p class="mb-0">When I share a project with my teammate, our changes aren't updating live. We have to refresh manually to see updates. Both using v2.5.0...</p>
+                  <div>
+                    <span class="badge-tag">Collaboration</span>
+                    <span class="badge-tag">Bug Report</span>
+                  </div>
+                  <div class="discussion-meta">
+                    <strong>8 replies</strong> • Last reply 3 days ago
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="discussion-item">
+              <div class="hstack gap-3 align-items-start">
+                <div class="user-avatar" style="background: #ffc107; color: #000;">MK</div>
+                <div style="flex: 1;">
+                  <h5 class="mb-1">Best practices for organizing large projects</h5>
+                  <p class="text-muted mb-2">Started by Mike King • 4 days ago</p>
+                  <p class="mb-0">I'm working on a large project with 50+ artboards. What's the best way to organize layers and components to keep performance optimal?</p>
+                  <div>
+                    <span class="badge-tag">Tips</span>
+                    <span class="badge-tag">Performance</span>
+                  </div>
+                  <div class="discussion-meta">
+                    <strong>12 replies</strong> • Last reply 2 days ago
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Requests Tab -->
+          <div id="features" class="tab-content" style="display: none;">
+            <div class="discussion-item">
+              <div class="hstack gap-3 align-items-start">
+                <div class="user-avatar" style="background: #17a2b8;">AL</div>
+                <div style="flex: 1;">
+                  <h5 class="mb-1">Add variable fonts support</h5>
+                  <p class="text-muted mb-2">Requested by Alex Lee • 1 week ago</p>
+                  <p class="mb-0">Would love to see native variable font support. This would allow for better typography control and smaller file sizes...</p>
+                  <div>
+                    <span class="badge-tag featured">Featured</span>
+                    <span class="badge-tag">Typography</span>
+                  </div>
+                  <div class="discussion-meta">
+                    <strong>64 votes</strong> • <strong>9 replies</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="discussion-item">
+              <div class="hstack gap-3 align-items-start">
+                <div class="user-avatar" style="background: #6f42c1;">RP</div>
+                <div style="flex: 1;">
+                  <h5 class="mb-1">WebGL real-time preview for 3D models</h5>
+                  <p class="text-muted mb-2">Requested by Rachel Park • 5 days ago</p>
+                  <p class="mb-0">Would be amazing to preview 3D models directly in the browser without exporting. Could use Three.js or similar library...</p>
+                  <div>
+                    <span class="badge-tag">3D Modeling</span>
+                    <span class="badge-tag">Preview</span>
+                  </div>
+                  <div class="discussion-meta">
+                    <strong>42 votes</strong> • <strong>5 replies</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Showcase Tab -->
+          <div id="showcase" class="tab-content" style="display: none;">
+            <div class="discussion-item">
+              <div class="hstack gap-3 align-items-start">
+                <div class="user-avatar" style="background: #20c997;">EN</div>
+                <div style="flex: 1;">
+                  <h5 class="mb-1">Motion graphics animation showcase - Product launch video</h5>
+                  <p class="text-muted mb-2">Posted by Emma Norton • 3 days ago</p>
+                  <p class="mb-0">Just finished a 30-second product launch animation for a startup. Used Leaf's motion graphics features with particle effects and 3D elements. Really impressed with the export quality!</p>
+                  <div>
+                    <span class="badge-tag">Motion Graphics</span>
+                    <span class="badge-tag">Video</span>
+                  </div>
+                  <div class="discussion-meta">
+                    <strong>87 likes</strong> • <strong>12 comments</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="discussion-item">
+              <div class="hstack gap-3 align-items-start">
+                <div class="user-avatar" style="background: #fd7e14;">OC</div>
+                <div style="flex: 1;">
+                  <h5 class="mb-1">UI/UX Design System - Complete workflow in Leaf</h5>
+                  <p class="text-muted mb-2">Posted by Oliver Chen • 1 week ago</p>
+                  <p class="mb-0">Designed and shipped a complete design system with 200+ components. Leaf's component system and collaboration features made it so much easier to manage with my team...</p>
+                  <div>
+                    <span class="badge-tag">UI/UX</span>
+                    <span class="badge-tag">Design System</span>
+                  </div>
+                  <div class="discussion-meta">
+                    <strong>156 likes</strong> • <strong>23 comments</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- General Discussion Tab -->
+          <div id="general" class="tab-content" style="display: none;">
+            <div class="discussion-item">
+              <div class="hstack gap-3 align-items-start">
+                <div class="user-avatar" style="background: #e83e8c;">LT</div>
+                <div style="flex: 1;">
+                  <h5 class="mb-1">Leaf Singularity roadmap discussion</h5>
+                  <p class="text-muted mb-2">Started by Lisa Thompson • 2 weeks ago</p>
+                  <p class="mb-0">What features would you like to see in future downloads? The team at Enmero is interested in hearing community feedback on priorities...</p>
+                  <div>
+                    <span class="badge-tag">Roadmap</span>
+                    <span class="badge-tag">Discussion</span>
+                  </div>
+                  <div class="discussion-meta">
+                    <strong>34 replies</strong> • Last reply 2 days ago
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="discussion-item">
+              <div class="hstack gap-3 align-items-start">
+                <div class="user-avatar" style="background: #00d4ff;">JW</div>
+                <div style="flex: 1;">
+                  <h5 class="mb-1">Workflow tips and tricks</h5>
+                  <p class="text-muted mb-2">Started by James Wilson • 3 weeks ago</p>
+                  <p class="mb-0">Share your favorite Leaf shortcuts, workflows, and hidden features! Here are mine: 1) Cmd+/ for quick search, 2) Shift+click for multi-select...</p>
+                  <div>
+                    <span class="badge-tag">Tips</span>
+                    <span class="badge-tag">Workflow</span>
+                  </div>
+                  <div class="discussion-meta">
+                    <strong>67 replies</strong> • Last reply 1 day ago
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Community Guidelines -->
+        <div style="margin-top: 60px; padding: 30px; background: #f8f9fa; border-radius: 8px;">
+          <h3>Community Guidelines</h3>
+          <ul>
+            <li>Be respectful and constructive in all discussions</li>
+            <li>Search before posting to avoid duplicates</li>
+            <li>Provide context and details when asking for help</li>
+            <li>Share knowledge and help others when you can</li>
+            <li>No spam, self-promotion, or harassment</li>
+            <li>Mark your solution when your problem is solved</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-5 mb-8 mb-xl-0">
+          <div class="d-flex flex-column gap-8 pe-xl-5">
+            <h2 class="mb-0 text-white">Connect with us</h2>
+            <div class="d-flex flex-column gap-2">
+              <a href="mailto:hello@leafsingularity.com" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:mail" class="fs-7 text-primary"></iconify-icon>
+                hello@leafsingularity.com
+              </a>
+              <a href="docs.html" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:book" class="fs-7 text-primary"></iconify-icon>
+                Documentation
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
+            <li><a class="link-hover fs-5 text-white" href="features.html">Features</a></li>
+            <li><a class="link-hover fs-5 text-white" href="downloads.html">Download</a></li>
+            <li><a class="link-hover fs-5 text-white" href="community.html">Community</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
+          <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
+            <li><a class="link-hover fs-5 text-white" href="#!">Facebook</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Instagram</a></li>
+            <li><a class="link-hover fs-5 text-white" href="#!">Twitter</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4 col-xl-3 mb-8 mb-xl-0">
+          <p class="mb-0 text-white text-opacity-70 text-md-end">© enmero copyright 2025</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="get-template hstack gap-2">
+    <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0" id="scrollToTopBtn">
+      <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
+    </button>
+  </div>
+
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
+  <script src="../assets/libs/aos-master/dist/aos.js"></script>
+  <script src="../assets/js/custom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  <script>
+    function switchTab(tabName, element) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.style.display = 'none';
+      });
+      // Show selected tab
+      document.getElementById(tabName).style.display = 'block';
+      
+      // Update active link
+      document.querySelectorAll('.nav-link-custom').forEach(link => {
+        link.classList.remove('active');
+      });
+      element.classList.add('active');
+    }
+  </script>
+</body>
+</html>

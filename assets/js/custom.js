@@ -79,3 +79,27 @@ $(function () {
 
 });
 
+window.addEventListener('scroll', function() {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+ document.querySelectorAll('.hover-white-btn').forEach(btn => {
+  
+  // Sign Up hover (gray border + #DDBEFF fill)
+  if (btn.textContent.trim() === 'Sign Up') {
+    btn.addEventListener('mouseenter', function() {
+      this.style.color = '#1f1f1f';
+      this.style.backgroundColor = '#DDBEFF';
+    });
+    
+    btn.addEventListener('mouseleave', function() {
+      this.style.color = 'white';
+      this.style.backgroundColor = '#1f1f1f';
+    });
+  }
+});

@@ -1,14 +1,212 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Leaf - Manual</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/leaf-logo.png" />
+  <title>Leaf - Documentation</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/white-leaf.png" />
   <link rel="stylesheet" href="../assets/libs/owl.carousel/dist/assets/owl.carousel.min.css">
   <link rel="stylesheet" href="../assets/libs/aos-master/dist/aos.css">
   <link rel="stylesheet" href="../assets/css/styles.css" />
+  <style>
+    /* ----------------------------------------------------
+   PREMIUM UI UPGRADE – CLEAN, SMOOTH, PROFESSIONAL
+------------------------------------------------------*/
+
+/* Sidebar */
+.doc-sidebar {
+  position: sticky;
+  top: 100px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px;
+  height: fit-content;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.06);
+  transition: all .3s ease;
+}
+
+.doc-sidebar:hover {
+  box-shadow: 0 8px 30px rgba(0,0,0,0.09);
+}
+
+.doc-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.doc-sidebar li {
+  margin-bottom: 10px;
+}
+
+.doc-sidebar a {
+  color: #6e6e6e;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.doc-sidebar a:hover,
+.doc-sidebar a.active {
+  background: linear-gradient(135deg, #dfe8ff, #f3f6ff);
+  color: #1f1f1f;
+  font-weight: 600;
+  transform: translateX(6px);
+}
+
+/* Headings */
+.doc-content h2 {
+  margin-top: 45px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #eee;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #1a1a1a;
+}
+
+.doc-content h3 {
+  margin-top: 28px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Code Block */
+.code-block {
+  background: #0e0e0e;
+  color: #dcdcdc;
+  padding: 18px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 20px 0;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.18);
+}
+
+/* Table */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+}
+
+.spec-table th {
+  background: #f9f9f9;
+  padding: 14px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.spec-table td {
+  padding: 14px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* Search bar */
+.search-box input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.search-box input:focus {
+  border-color: #6a5af9;
+  box-shadow: 0 0 0 3px rgba(106,90,249,0.18);
+  outline: none;
+}
+
+/* FAQ */
+.faq-title {
+  font-size: 2.4rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 45px;
+  background: linear-gradient(135deg, #6a5af9, #48c6ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.accordion-item {
+  border: none !important;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.accordion-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.accordion-button {
+  font-weight: 600;
+  padding: 20px;
+  background: #fff;
+  border: none;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #6a5af9;
+  background: #f4f2ff;
+  box-shadow: none;
+  border-left: 5px solid #6a5af9;
+}
+
+.accordion-body {
+  background: #fff;
+  padding: 22px;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* Breadcrumb */
+.breadcrumb-nav a {
+  color: #4d7cff;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.breadcrumb-nav a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width:768px) {
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .page-wrapper {
+        flex: 1; /* Takes remaining space */
+      }
+
+      footer {
+        margin-top: auto; /* Pushes footer to bottom */
+        padding-bottom: 0 !important; /* Remove bottom padding */
+      }
+
+      /* Kill any extra spacing */
+      footer::after,
+      footer > div:last-child {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -46,8 +244,8 @@
                   </a>
                 </li>
                 <li class="header-item">
-                  <a href="releases.html" class="header-link fs-6 fw-medium text-dark text-decoration-none">
-                    <img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin me-2">Releases
+                  <a href="downloads.html" class="header-link fs-6 fw-medium text-dark text-decoration-none">
+                    <img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin me-2">downloads
                   </a>
                 </li>
                 <li class="header-item">
@@ -61,22 +259,16 @@
                   </a>
                 </li>
                 <li class="header-item">
-                  <a href="hello.html" class="header-link fs-6 fw-medium text-dark text-decoration-none">
+                  <a href="docs.html" class="header-link fs-6 fw-medium text-dark text-decoration-none">
                     <img src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20" class="img-fluid animate-spin me-2">Docs
                   </a>
                 </li>
-                <!-- Sign In Button -->
-                <a href="sign-in.html" 
-                  class="btn btn-outline-dark fs-6 px-4 py-2 shadow-sm me-2 hover-white-btn" 
-                  style="border-radius: 8px; color: #1f1f1f; border-color: #1f1f1f;">
-                  Sign In
-                </a>
 
                 <!-- Sign Up Button -->
                 <a href="sign-up.html" 
                   class="btn hover-white-btn fs-6 px-4 py-2 shadow-sm text-white" 
                   style="border-radius: 8px; background: #1f1f1f; border:1px solid #1f1f1f">
-                  Sign Up
+                  Register Now
                 </a>
 
 
@@ -112,9 +304,9 @@
                           class="img-fluid animate-spin">features</a>
                     </li>
                     <li class="header-item">
-                      <a href="releases.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
+                      <a href="downloads.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
                           src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20"
-                          class="img-fluid animate-spin">Releases</a>
+                          class="img-fluid animate-spin">downloads</a>
                     </li>
                     <li class="header-item">
                       <a href="blog.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
@@ -128,7 +320,7 @@
                           class="img-fluid animate-spin">Contact</a>
                     </li>
                     <li class="header-item">
-                      <a href="hello.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
+                      <a href="docs.html" class="header-link hstack gap-2 fs-7 fw-bold text-dark"><img
                           src="../assets/images/svgs/secondary-leaf.svg" alt="" width="20" height="20"
                           class="img-fluid animate-spin">Docs</a>
                     </li>
@@ -153,10 +345,10 @@
         </div>
       </div> 
   </header>
-  <!--  Page Wrapper -->
-  <div class="page-wrapper overflow-hidden">
 
-    <!--  Banner Section -->
+  <!-- Page Wrapper -->
+  <div class="page-wrapper overflow-hidden">
+    <!-- Banner -->
     <section class="banner-section banner-inner-section position-relative overflow-hidden d-flex align-items-end"
       style="background-image: url(../assets/images/backgrounds/privacy-policy-banner.jpg);">
       <div class="container">
@@ -172,7 +364,7 @@
             </div>
           </div>
           <div class="d-flex align-items-end gap-3"   >
-            <h1 class="mb-0 fs-16 text-white lh-1">Documentation</h1>
+            <h1 class="mb-0 fs-15 text-white lh-1">Manual</h1>
             <a href="javascript:void(0)" class="p-1 ps-7 bg-primary rounded-pill">
               <span class="bg-white round-52 rounded-circle d-flex align-items-center justify-content-center">
                 <iconify-icon icon="lucide:arrow-up-right" class="fs-8 text-dark"></iconify-icon>
@@ -183,69 +375,422 @@
       </div>
     </section>
 
-    <!--  Privacy Policy Section -->
-    <section class="privacy-policy py-5 py-lg-11">
+    <!-- Documentation Content -->
+    <section class="py-5 py-lg-11">
       <div class="container">
-        <p class="fs-5 text-dark fw-medium">This Privacy Statement explains how personal information about our
-          (potential)
-          customers and other individuals using our services is collected, used, and disclosed by **Bootstrap Admin
-          Templates**
-          ("us", "we", "our"). This Privacy Statement describes our privacy practices in relation to the use of our
-          websites, including any customer portals or interactive websites <a class="fw-bold"
-            href="https://bootstrap-admintemplates.com/" target="_blank">(https://bootstrap-admintemplates.com/)</a>,
-          our
-          software (Bootstrap), services, solutions, tools, and related applications, services, and programs, including
-          research and marketing activities, offered by us (the "Services").
-        </p>
-        <p class="fs-5 text-dark fw-medium">By signing up for our Services and agreeing to our General Terms and
-          Conditions, you consent to the collection, usage, storage, and disclosure of your information as described in
-          this Privacy Statement.
-        </p>
-        <p class="fs-5 text-dark fw-medium">Our Services may contain links to external websites or services. The
-          privacy practices and content of such sites or services will be governed by their respective privacy policies.
-          We may update this Privacy Statement periodically. If changes occur, we will notify you by updating the date
-          at the top of the statement and providing additional notifications (such as a statement on our homepage or an
-          email notification). We encourage you to review this Privacy Statement whenever you use our Services to stay
-          informed about how we handle your information.
-        </p>
-        <h4 class="my-4">Personal Information Collection</h4>
-        <p class="fs-5 text-dark fw-medium">While using our Services, we may ask you to provide certain personally
-          identifiable information that can be used to contact or identify you. This may include basic user details
-          (such as your name, email address, telephone number, and profile picture), company information, and any other
-          data you choose to share with us.
+        <div class="row gap-5">
+          <!-- Sidebar Navigation -->
+          <div class="col-lg-3 d-none d-lg-block">
+            <div class="doc-sidebar">
+              <div class="search-box">
+                <input type="text" id="docSearch" placeholder="Search documentation..." onkeyup="filterDocs()">
+              </div>
+              <ul>
+                <li><a href="#getting-started" class="doc-link">Getting Started</a></li>
+                <li><a href="#system-requirements" class="doc-link">System Requirements</a></li>
+                <li><a href="#installation" class="doc-link">Installation</a></li>
+                <li><a href="#first-project" class="doc-link">Create First Project</a></li>
+                <li><a href="#features" class="doc-link">Feature Guides</a></li>
+                <li><a href="#api-reference" class="doc-link">API Reference</a></li>
+                <li><a href="#troubleshooting" class="doc-link">Troubleshooting</a></li>
+                <li><a href="#faq" class="doc-link">FAQ</a></li>
+              </ul>
+            </div>
+          </div>
 
-          We do not collect financial information (such as credit card details or security codes). All payments are
-          handled through a third-party provider. If applicable, please refer to their Privacy
-          Policy: <a class="fw-bold" href="https://bootstrap-admintemplates.com/"
-            target="_blank">https://bootstrap-admintemplates.com/</a>.
-        </p>
-        <h4 class="my-4">Personal Information You Provide to Us</h4>
-        <p class="fs-5 text-dark fw-medium">When using our Services, you may provide personally identifiable
-          information, such as when creating an account, requesting customer support, or interacting with our platform.
-        <p class="fs-5 text-dark fw-medium mb-0">As noted, we do not collect financial details directly. Payments are
-          processed via third-party providers. Please review their privacy policy for details: <a class="fw-bold"
-            href="https://bootstrap-admintemplates.com/" target="_blank">https://bootstrap-admintemplates.com/</a>.
-        </p>
+          <!-- Main Content -->
+          <div class="col-lg-9 doc-content">
+            <!-- Getting Started -->
+            <div id="getting-started">
+              <h2>Getting Started</h2>
+              <p>Welcome to Leaf Singularity. This section will guide you through the basics of installation, setup, and creating your first project.</p>
+              <p>For video tutorials, visit our <a href="community.html">Community Forum</a> where users share workflow guides and tips.</p>
+            </div>
+
+            <!-- System Requirements -->
+            <div id="system-requirements">
+              <h2>System Requirements</h2>
+              <table class="spec-table">
+                <tr>
+                  <th>Component</th>
+                  <th>Minimum</th>
+                  <th>Recommended</th>
+                </tr>
+                <tr>
+                  <td>Processor</td>
+                  <td>Intel Core i5 / AMD Ryzen 5</td>
+                  <td>Intel Core i7 / AMD Ryzen 7</td>
+                </tr>
+                <tr>
+                  <td>RAM</td>
+                  <td>8 GB</td>
+                  <td>16 GB or more</td>
+                </tr>
+                <tr>
+                  <td>Storage</td>
+                  <td>2 GB SSD</td>
+                  <td>5 GB SSD</td>
+                </tr>
+                <tr>
+                  <td>GPU</td>
+                  <td>Integrated Graphics</td>
+                  <td>NVIDIA GTX 1060 / RTX 2060 or equivalent</td>
+                </tr>
+                <tr>
+                  <td>OS</td>
+                  <td>Windows 10 / macOS 10.14 / Ubuntu 18.04</td>
+                  <td>Windows 11 / macOS 12+ / Ubuntu 20.04+</td>
+                </tr>
+                <tr>
+                  <td>Internet</td>
+                  <td>2 Mbps (for cloud sync)</td>
+                  <td>10 Mbps (recommended)</td>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Installation -->
+            <div id="installation">
+              <h2>Installation</h2>
+              
+              <h3>Windows Installation</h3>
+              <ol>
+                <li>Download the Windows installer (.exe) from <a href="downloads.html">Downloads</a></li>
+                <li>Run the installer with administrator privileges</li>
+                <li>Accept the license agreement</li>
+                <li>Choose installation location (default: C:\Program Files\Leaf)</li>
+                <li>Select additional tasks (desktop shortcut, start menu)</li>
+                <li>Click Install and wait for completion</li>
+                <li>Launch Leaf Singularity from Start Menu or desktop shortcut</li>
+              </ol>
+
+              <h3>macOS Installation</h3>
+              <ol>
+                <li>Download the macOS installer (.dmg) from <a href="downloads.html">Downloads</a></li>
+                <li>Double-click the .dmg file to mount it</li>
+                <li>Drag the Leaf Singularity icon to the Applications folder</li>
+                <li>Open Applications folder and double-click Leaf Singularity</li>
+                <li>If prompted, approve security permissions in System Preferences</li>
+                <li>Grant microphone and camera access when requested</li>
+              </ol>
+
+              <h3>Linux Installation</h3>
+              <p>Ubuntu/Debian-based systems:</p>
+              <div class="code-block">sudo apt update
+sudo apt install leaf-singularity</div>
+
+              <p>Or using AppImage:</p>
+              <div class="code-block">chmod +x Leaf-Singularity.AppImage
+./Leaf-Singularity.AppImage</div>
+
+              <p>Fedora/RHEL-based systems:</p>
+              <div class="code-block">sudo dnf install leaf-singularity</div>
+            </div>
+
+            <!-- First Project -->
+            <div id="first-project">
+              <h2>Create Your First Project</h2>
+              <ol>
+                <li>Launch Leaf Singularity</li>
+                <li>Click "New Project" or use File → New</li>
+                <li>Choose project type: Design, 3D Model, or Animation</li>
+                <li>Set canvas size (or use presets: 1920x1080, A4, etc.)</li>
+                <li>Click "Create" to initialize your project</li>
+                <li>Your project is auto-saved to cloud every 15 minutes</li>
+              </ol>
+              <p>Projects are stored locally and synced to cloud if you're logged in. You can access your projects from any device.</p>
+            </div>
+
+            <!-- Feature Guides -->
+            <div id="features">
+              <h2>Feature Guides</h2>
+              
+              <h3>Design Editor</h3>
+              <p>Create and edit 2D designs with vector, raster, and text tools. The design editor includes:</p>
+              <ul>
+                <li>Vector drawing and shape tools</li>
+                <li>Non-destructive layer effects and filters</li>
+                <li>Advanced typography with variable fonts</li>
+                <li>Artboards for multi-page designs</li>
+                <li>Component system for reusable elements</li>
+              </ul>
+
+              <h3>Real-Time Collaboration</h3>
+              <p>Work with team members simultaneously on the same project:</p>
+              <ul>
+                <li>Share project link with team members</li>
+                <li>See live cursor positions and edits</li>
+                <li>Leave comments and annotations on layers</li>
+                <li>Version history with rollback capability</li>
+                <li>Permission levels: view, edit, or admin</li>
+              </ul>
+
+              <h3>3D Modeling</h3>
+              <p>Import and create 3D models directly:</p>
+              <ul>
+                <li>Import OBJ, FBX, BLEND, GLB formats</li>
+                <li>Built-in 3D primitives and modeling tools</li>
+                <li>Material and texture editor</li>
+                <li>Real-time rendering with multiple light types</li>
+                <li>Export as models or rendered images/video</li>
+              </ul>
+
+              <h3>Motion Graphics & Animation</h3>
+              <p>Create animated content with keyframe animation:</p>
+              <ul>
+                <li>Timeline-based keyframe animation</li>
+                <li>Easing curves and animation presets</li>
+                <li>Motion blur and particle effects</li>
+                <li>Export as MP4, WebM, or GIF</li>
+                <li>Frame-by-frame export for maximum control</li>
+              </ul>
+            </div>
+
+            <!-- API Reference -->
+            <div id="api-reference">
+              <h2>API Reference</h2>
+              <p>Integrate Leaf Singularity with your applications using our REST API.</p>
+
+              <h3>Authentication</h3>
+              <p>All API requests require authentication using an API key:</p>
+              <div class="code-block">Authorization: Bearer YOUR_API_KEY
+Content-Type: application/json</div>
+
+              <p>Get your API key from Account Settings → Developer → API Keys.</p>
+
+              <h3>Base URL</h3>
+              <div class="code-block">https://api.leafsingularity.com/v1</div>
+
+              <h3>Projects Endpoints</h3>
+              <table class="spec-table">
+                <tr>
+                  <th>Method</th>
+                  <th>Endpoint</th>
+                  <th>Description</th>
+                </tr>
+                <tr>
+                  <td>GET</td>
+                  <td>/projects</td>
+                  <td>List all user projects</td>
+                </tr>
+                <tr>
+                  <td>POST</td>
+                  <td>/projects</td>
+                  <td>Create new project</td>
+                </tr>
+                <tr>
+                  <td>GET</td>
+                  <td>/projects/:id</td>
+                  <td>Get project details</td>
+                </tr>
+                <tr>
+                  <td>PUT</td>
+                  <td>/projects/:id</td>
+                  <td>Update project metadata</td>
+                </tr>
+                <tr>
+                  <td>DELETE</td>
+                  <td>/projects/:id</td>
+                  <td>Delete project</td>
+                </tr>
+                <tr>
+                  <td>POST</td>
+                  <td>/projects/:id/export</td>
+                  <td>Export project to PNG/SVG/MP4</td>
+                </tr>
+              </table>
+
+              <h3>Example Request</h3>
+              <div class="code-block">curl -X GET https://api.leafsingularity.com/v1/projects \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json"</div>
+            </div>
+
+            <!-- Troubleshooting -->
+            <div id="troubleshooting">
+              <h2>Troubleshooting</h2>
+
+              <h3>Application crashes on startup</h3>
+              <p><strong>Solution:</strong> Clear the application cache and restart:</p>
+              <div class="code-block"># Windows
+del %APPDATA%\Leaf\cache
+
+# macOS
+rm -rf ~/Library/Application\ Support/Leaf/cache
+
+# Linux
+rm -rf ~/.config/leaf/cache</div>
+
+              <h3>Collaboration not syncing</h3>
+              <p><strong>Solution:</strong> Check your network connection and firewall settings. Ensure that ports 443 (HTTPS) and 8080 (WebSocket) are open. Restart the application if necessary.</p>
+
+              <h3>GPU acceleration not working</h3>
+              <p><strong>Solution:</strong> Update your graphics drivers. Go to Settings → Graphics → GPU Rendering and toggle it on. If still not working, check if your GPU is supported:</p>
+              <ul>
+                <li>NVIDIA: CUDA Compute Capability 3.0+</li>
+                <li>AMD: RDNA or RDNA 2 architecture</li>
+                <li>Intel: Arc A380 or newer</li>
+              </ul>
+
+              <h3>File export fails</h3>
+              <p><strong>Solution:</strong> Ensure you have write permissions to the export directory. Try exporting to your Documents or Desktop folder first. Check disk space availability (requires at least 500MB for video export).</p>
+
+              <h3>High memory usage</h3>
+              <p><strong>Solution:</strong> Close unused projects, reduce canvas size, or lower preview quality in Settings. If working with large files, consider splitting your project into smaller artboards.</p>
+            </div>
+
+            <!-- FAQ -->
+            <div class="container my-5 faq-section">
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+
+  <div class="accordion" id="faqAccordion">
+
+    <!-- Item 1 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq1">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+          Can I collaborate with unlimited team members?
+        </button>
+      </h2>
+      <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes. You can share projects with unlimited collaborators. Real-time collaboration is available on Pro and Enterprise plans.
+        </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq2">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+          What file formats can I import and export?
+        </button>
+      </h2>
+      <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          <strong>Import:</strong> PSD, XD, SVG, PNG, JPG, PDF, BLEND, OBJ, FBX, GLB<br>
+          <strong>Export:</strong> PNG, JPG, SVG, PDF, MP4, WebM, GIF, BLEND, OBJ
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+          Is there automatic cloud backup?
+        </button>
+      </h2>
+      <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes. Your projects are automatically backed up to cloud every 15 minutes if you're logged in. Version history is available for the last 30 days.
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq4">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+          Can I work offline?
+        </button>
+      </h2>
+      <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Yes. Leaf works completely offline. Changes are synced to cloud when you reconnect to the internet.
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq5">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5">
+          What are the supported operating systems?
+        </button>
+      </h2>
+      <div id="collapse5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Windows 10+, macOS 10.14+, Ubuntu 18.04+, and other Linux distributions. Mobile versions are coming soon.
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 6 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq6">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6">
+          How do I transfer my projects to another computer?
+        </button>
+      </h2>
+      <div id="collapse6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          If you're logged in, your projects sync automatically to cloud. On the new computer, sign in and your projects will appear. Alternatively, export your projects and manually transfer the files.
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 7 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq7">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse7">
+          Is there a maximum project size?
+        </button>
+      </h2>
+      <div id="collapse7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Local projects can be up to 10GB. Cloud projects are limited to 2GB per file to ensure fast syncing. For larger projects, consider splitting them into multiple files.
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 8 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="faq8">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8">
+          How do I report bugs or suggest features?
+        </button>
+      </h2>
+      <div id="collapse8" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body">
+          Visit the <a href="community.html">Community Forum</a> to report issues and suggest features.  
+          You can also email support@leafsingularity.com for urgent issues.
+        </div>
+      </div>
+    </div>
 
   </div>
+</div>
+            <!-- Getting Help -->
+            <div style="margin-top: 60px; padding: 30px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #007bff;">
+              <h3 style="margin-top: 0;">Still need help?</h3>
+              <ul style="margin-bottom: 0;">
+                <li><strong>Email:</strong> <a href="mailto:support@leafsingularity.com">support@leafsingularity.com</a></li>
+                <li><strong>Community:</strong> <a href="community.html">Join our community forum</a> to get help from other users</li>
+                <li><strong>Status:</strong> Check <a href="https://status.leafsingularity.com">system status page</a> for service updates</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 
+  <!-- Footer -->
   <footer class="footer bg-dark py-5 py-lg-11 py-xl-12">
     <div class="container">
       <div class="row">
         <div class="col-xl-5 mb-8 mb-xl-0">
           <div class="d-flex flex-column gap-8 pe-xl-5">
-            <h2 class="mb-0 text-white">Build something together?</h2>
+            <h2 class="mb-0 text-white">Need support?</h2>
             <div class="d-flex flex-column gap-2">
-              <a href="https://www.wrappixel.com/" target="_blank" class="link-hover hstack gap-3 text-white fs-5">
-                <iconify-icon icon="lucide:arrow-up-right" class="fs-7 text-primary"></iconify-icon>
-                info@wrappixel.com
+              <a href="mailto:support@leafsingularity.com" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:mail" class="fs-7 text-primary"></iconify-icon>
+                support@leafsingularity.com
               </a>
-              <a href="https://maps.app.goo.gl/hpDp81fqzGt5y4bC8" target="_blank"
-                class="link-hover hstack gap-3 text-white fs-5">
-                <iconify-icon icon="lucide:map-pin" class="fs-7 text-primary"></iconify-icon>
-                info@wrappixel.com
+              <a href="community.html" class="link-hover hstack gap-3 text-white fs-5">
+                <iconify-icon icon="lucide:users" class="fs-7 text-primary"></iconify-icon>
+                Community Forum
               </a>
             </div>
           </div>
@@ -253,12 +798,9 @@
         <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
           <ul class="footer-menu list-unstyled mb-0 d-flex flex-column gap-2">
             <li><a class="link-hover fs-5 text-white" href="index.html">Home</a></li>
-            <li><a class="link-hover fs-5 text-white" href="about-us.html">About</a></li>
-            <li><a class="link-hover fs-5 text-white" id="services" href="features.html">Features</a></li>
-            
-            <li><a class="link-hover fs-5 text-white" href="terms-and-conditions.html">Terms</a></li>
-            <li><a class="link-hover fs-5 text-white" href="privacy-policy.html">Privacy Policy</a></li>
-            
+            <li><a class="link-hover fs-5 text-white" href="features.html">Features</a></li>
+            <li><a class="link-hover fs-5 text-white" href="downloads.html">Download</a></li>
+            <li><a class="link-hover fs-5 text-white" href="docs.html">Documentation</a></li>
           </ul>
         </div>
         <div class="col-md-4 col-xl-2 mb-8 mb-xl-0">
@@ -273,24 +815,40 @@
         </div>
       </div>
     </div>
-  
   </footer>
 
   <div class="get-template hstack gap-2">
-    <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0"
-      id="scrollToTopBtn">
+    <button class="btn bg-primary p-2 round-52 rounded-circle hstack justify-content-center flex-shrink-0" id="scrollToTopBtn">
       <iconify-icon icon="lucide:arrow-up" class="fs-7 text-dark"></iconify-icon>
     </button>
   </div>
-
 
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/libs/owl.carousel/dist/owl.carousel.min.js"></script>
   <script src="../assets/libs/aos-master/dist/aos.js"></script>
   <script src="../assets/js/custom.js"></script>
-  <!-- solar icons -->
   <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+  <script>
+    function filterDocs() {
+      var input = document.getElementById('docSearch').value.toLowerCase();
+      var links = document.querySelectorAll('.doc-sidebar a');
+      links.forEach(link => {
+        var text = link.textContent.toLowerCase();
+        if (text.includes(input)) {
+          link.style.display = 'block';
+        } else {
+          link.style.display = 'none';
+        }
+      });
+    }
+    
+    document.querySelectorAll('.doc-link').forEach(link => {
+      link.addEventListener('click', function() {
+        document.querySelectorAll('.doc-link').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+  </script>
 </body>
-
 </html>
